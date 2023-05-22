@@ -1,0 +1,468 @@
+Microsoft Windows [Version 10.0.19045.2846]
+(c) Microsoft Corporation. All rights reserved.
+
+D:\git learning>git init
+Initialized empty Git repository in D:/git learning/.git/
+
+D:\git learning>git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Employee Salaries.txt
+        KCC Logo.png
+        index.htm
+        secret recipe.htm
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\git learning>git add index.htm
+
+D:\git learning>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.htm
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Employee Salaries.txt
+        KCC Logo.png
+        secret recipe.htm
+
+
+D:\git learning>git rm --cached index.htm
+rm 'index.htm'
+
+D:\git learning>git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Employee Salaries.txt
+        KCC Logo.png
+        index.htm
+        secret recipe.htm
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\git learning>git add .
+
+D:\git learning>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   Employee Salaries.txt
+        new file:   KCC Logo.png
+        new file:   index.htm
+        new file:   secret recipe.htm
+
+
+D:\git learning>git rm secret recipe.htm
+fatal: pathspec 'secret' did not match any files
+
+D:\git learning>git rm "secret recipe.htm"
+error: the following file has changes staged in the index:
+    secret recipe.htm
+(use --cached to keep the file, or -f to force removal)
+
+D:\git learning>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   Employee Salaries.txt
+        new file:   KCC Logo.png
+        new file:   index.htm
+        new file:   secret recipe.htm
+
+
+D:\git learning>git rm -f "secret recipe.htm"
+rm 'secret recipe.htm'
+
+D:\git learning>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   Employee Salaries.txt
+        new file:   KCC Logo.png
+        new file:   index.htm
+
+
+D:\git learning>git restore "secret recipe.htm"
+error: pathspec 'secret recipe.htm' did not match any file(s) known to git
+
+D:\git learning>git restore "secret recipe.htm"
+error: pathspec 'secret recipe.htm' did not match any file(s) known to git
+
+D:\git learning>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   Employee Salaries.txt
+        new file:   KCC Logo.png
+        new file:   index.htm
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        secret recipe.htm
+
+
+D:\git learning>git add .
+
+D:\git learning>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   Employee Salaries.txt
+        new file:   KCC Logo.png
+        new file:   index.htm
+        new file:   secret recipe.htm
+
+
+D:\git learning>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   Employee Salaries.txt
+        new file:   KCC Logo.png
+        new file:   index.htm
+        new file:   secret recipe.htm
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    secret recipe.htm
+
+
+D:\git learning>git restore "secret recipe.htm"
+
+D:\git learning>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   Employee Salaries.txt
+        new file:   KCC Logo.png
+        new file:   index.htm
+        new file:   secret recipe.htm
+
+
+D:\git learning>git commit "first commit"
+error: pathspec 'first commit' did not match any file(s) known to git
+
+D:\git learning>git commit -m "first commit"
+[master (root-commit) efc5a2f] first commit
+ 4 files changed, 56 insertions(+)
+ create mode 100644 Employee Salaries.txt
+ create mode 100644 KCC Logo.png
+ create mode 100644 index.htm
+ create mode 100644 secret recipe.htm
+
+D:\git learning>git status
+On branch master
+nothing to commit, working tree clean
+
+D:\git learning>git status
+On branch master
+nothing to commit, working tree clean
+
+D:\git learning>git rm "secret recipe.htm"
+rm 'secret recipe.htm'
+
+D:\git learning>git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    secret recipe.htm
+
+
+D:\git learning>git restore "secret recipe.htm"
+error: pathspec 'secret recipe.htm' did not match any file(s) known to git
+
+D:\git learning>git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    secret recipe.htm
+
+
+D:\git learning>git restore -staged "secret recipe.htm"
+fatal: could not resolve taged
+
+D:\git learning>git restore --staged "secret recipe.htm"
+
+D:\git learning>git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    secret recipe.htm
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\git learning>git restore "secret recipe.htm"
+
+D:\git learning>git restore --staged "secret recipe.htm"
+
+D:\git learning>git status
+On branch master
+nothing to commit, working tree clean
+
+D:\git learning>git status
+On branch master
+nothing to commit, working tree clean
+
+D:\git learning>git mv "KCC Logo" "cookie Logo"
+fatal: bad source, source=KCC Logo, destination=cookie Logo
+
+D:\git learning>git mv "KCC Logo.png" "cookie Logo.png"
+
+D:\git learning>git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    KCC Logo.png -> cookie Logo.png
+
+
+D:\git learning>git commit -m "change file name"
+[master d6f5844] change file name
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename KCC Logo.png => cookie Logo.png (100%)
+
+D:\git learning>git status
+On branch master
+nothing to commit, working tree clean
+
+D:\git learning>git log
+commit d6f5844d974d5b040287e32d6cf33cbbc526f990 (HEAD -> master)
+Author: Lakshit Singh <lakyunlaky000@gmail.com>
+Date:   Mon May 22 12:30:38 2023 +0530
+
+    change file name
+
+commit efc5a2f845e19ef7ac1d6bf7d6bfd3cbbd337861
+Author: Lakshit Singh <lakyunlaky000@gmail.com>
+Date:   Mon May 22 08:54:59 2023 +0530
+
+    first commit
+
+D:\git learning>git log --oneline
+d6f5844 (HEAD -> master) change file name
+efc5a2f first commit
+
+D:\git learning>git branch
+* master
+
+D:\git learning> git branch fixtemp
+
+D:\git learning> git branch
+  fixtemp
+* master
+
+D:\git learning>git switch fixtemp
+Switched to branch 'fixtemp'
+
+D:\git learning> git branch
+* fixtemp
+  master
+
+D:\git learning>git status
+On branch fixtemp
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   secret recipe.htm
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\git learning>git commit -m "change temperature"
+On branch fixtemp
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   secret recipe.htm
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\git learning>git commit -a -m "change temperature"
+[fixtemp 2c15908] change temperature
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+D:\git learning>git status
+On branch fixtemp
+nothing to commit, working tree clean
+
+D:\git learning>git switch main
+fatal: invalid reference: main
+
+D:\git learning>git branch
+* fixtemp
+  master
+
+D:\git learning>git switch master
+Switched to branch 'master'
+
+D:\git learning>git  merge -m "fix temp" fixtemp
+Updating d6f5844..2c15908
+Fast-forward (no commit created; -m option ignored)
+ secret recipe.htm | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+D:\git learning>git branch -d fixtemp
+Deleted branch fixtemp (was 2c15908).
+
+D:\git learning>git branch
+* master
+
+D:\git learning>git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore.txt
+        git cheetsheet.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\git learning>git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore.txt
+        git cheetsheet.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\git learning>git -a -m "adding cheet cheet"
+unknown option: -a
+usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           [--config-env=<name>=<envvar>] <command> [<args>]
+
+D:\git learning>git commit -a -m "adding cheet cheet"
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore.txt
+        git cheetsheet.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\git learning>git branch
+* master
+
+D:\git learning>git commit -a -m "adding cheet cheet"
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore.txt
+        git cheetsheet.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\git learning>git add .
+
+D:\git learning>git commit -m "added cheetsheet"
+[master ea6620f] added cheetsheet
+ 2 files changed, 73 insertions(+)
+ create mode 100644 .gitignore.txt
+ create mode 100644 git cheetsheet.txt
+
+D:\git learning>git status
+On branch master
+nothing to commit, working tree clean
+
+D:\git learning>git push https://github.com/laks-debug/git_tutor.git
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream https://github.com/laks-debug/git_tutor.git master
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+D:\git learning>git push remote https://github.com/laks-debug/git_tutor.git
+fatal: invalid refspec 'https://github.com/laks-debug/git_tutor.git'
+
+D:\git learning>git remote add origin 'your_url_name'
+
+D:\git learning>git remote add origin 'https://github.com/laks-debug/git_tutor.git'
+error: remote origin already exists.
+
+D:\git learning>git remote remove origin
+
+D:\git learning>git remote add origin 'https://github.com/laks-debug/git_tutor.git'
+
+D:\git learning>git push -u origin master
+fatal: protocol ''https' is not supported
+
+D:\git learning>git push -u origin master
+fatal: protocol ''https' is not supported
+
+D:\git learning>git add .
+
+D:\git learning>git commit -m "r"
+[master a3a740e] r
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 .gitignore.txt
+
+D:\git learning>git remote add origin 'https://github.com/laks-debug/git_tutor.git'
+error: remote origin already exists.
+
+D:\git learning>git push -u origin master
+fatal: protocol ''https' is not supported
+
+D:\git learning>git branch
+* master
+
+D:\git learning>git remote remove origin
+
+D:\git learning>git remote add origin "https://github.com/laks-debug/git_tutor.git"
+
+D:\git learning>git push -u origin master
+info: please complete authentication in your browser...
+Enumerating objects: 17, done.
+Counting objects: 100% (17/17), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (17/17), 254.42 KiB | 8.21 MiB/s, done.
+Total 17 (delta 5), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (5/5), done.
+remote:
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/laks-debug/git_tutor/pull/new/master
+remote:
+To https://github.com/laks-debug/git_tutor.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+D:\git learning></file>
